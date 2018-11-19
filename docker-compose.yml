@@ -1,0 +1,16 @@
+version: '3'
+services:
+    app:
+        image: x4121/taskd:latest
+        restart: unless-stopped
+        networks:
+            - net
+        ports:
+            - "53589:53589"
+        volumes:
+            - "./data:/var/taskd"
+        env_file: "./taskd-variables.env"
+
+
+networks:
+    net:
